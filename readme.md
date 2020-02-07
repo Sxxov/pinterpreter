@@ -50,6 +50,11 @@ await workflowPerformer.perform(EXAMPLE_WORKFLOW, {
 });
 
 ```
+
+5) Finally, end it:
+```js
+await browserController.end();
+```
 ## <a name="more"></a>More usages
 Refer to the [API](https://github.com/sxxov/pinterpreter/blob/master/docs/api.md) docs for more information, including how to set up your own workflows and other ways you can launch your browser.
 

@@ -1,0 +1,17 @@
+{
+  "name": "pinterpreter",
+  "version": "0.0.1",
+  "description": "an interpreter layer for puppeteer, optimized for running browser automation",
+  "main": "core.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^7.0.4",
+    "puppeteer": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sxxov/pinterpreter"
+  }
+}

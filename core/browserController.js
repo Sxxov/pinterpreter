@@ -41,8 +41,8 @@ exports.BrowserController = class BrowserController {
 		forceKillChrome = this.forceKillChrome = false,
 		emulateMobile = this.emulateMobile = false,
 
-		executablePath = this.executablePath = null,
-		userDataDir = this.userDataDir = null,
+		executablePath = null,
+		userDataDir = null,
 		headless = this.headless = true,
 		...others
 	} = {}) {

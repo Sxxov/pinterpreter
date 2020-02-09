@@ -215,11 +215,20 @@ exports.BrowserController = class BrowserController {
 		return arg.join(',');
 	}
 
-	async $(selector, {
-		functionToEval = null,
-	} = {
-		functionToEval: null,
-	}) {
+	async $(selector, functionToEval = null) {
+		let queryResult;
+
+		if (functionToEval === null) {
+			queryResult = await this.getWorkingPage().$(selector);
+		} else {
+			queryResult = await this.getWorkingPage().$eval(selector,
+				(arrayFrom$) => functionToEval.call(this, arrayFrom$));
+		}
+
+		return queryResult;
+	}
+
+	async $$(selector, functionToEval = null) {
 		let queryResult;
 
 		if (functionToEval === null) {
@@ -229,14 +238,7 @@ exports.BrowserController = class BrowserController {
 				(arrayFrom$) => functionToEval.call(this, arrayFrom$));
 		}
 
-		switch (queryResult.length) {
-		case 0:
-			return null;
-		case 1:
-			return queryResult[0];
-		default:
-			return queryResult;
-		}
+		return queryResult;
 	}
 
 	getBrowser() {

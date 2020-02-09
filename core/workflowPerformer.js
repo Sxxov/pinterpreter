@@ -134,6 +134,10 @@ exports.WorkflowPerformer = class WorkflowPerformer {
 		return this.__browserController.$(selector);
 	}
 
+	async $$(selector) {
+		return this.__browserController.$$(selector);
+	}
+
 	async __sleep({ ms }) {
 		return sleep(ms);
 	}

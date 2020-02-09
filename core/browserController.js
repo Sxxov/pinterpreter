@@ -26,7 +26,7 @@ exports.BrowserController = class BrowserController {
 		this.browser = null;
 		this.pages = null;
 		this.chromeExecutablePath = null;
-		this.chromeUserDataPath = null;
+		this.chromeUserDataDir = null;
 		this.paths = paths;
 		this.puppeteerExtraArgs = [
 			`--disable-extensions-except=${this.__getLoadExtensionsArg()}`,
@@ -61,13 +61,13 @@ exports.BrowserController = class BrowserController {
 
 		if (!tryForUserBrowser) {
 			this.chromeExecutablePath = null;
-			this.chromeUserDataPath = null;
+			this.chromeUserDataDir = null;
 		} else {
 			if (doesPathExist(executablePath) !== true) {
 				this.chromeExecutablePath = this.paths.chrome.EXECUTABLE;
 			}
 			if (doesPathExist(userDataDir) !== true) {
-				this.chromeUserDataPath = this.paths.chrome.USER_DATA;
+				this.chromeUserDataDir = this.paths.chrome.USER_DATA;
 			}
 
 			if (this.chromeExecutablePath === null) {
@@ -79,7 +79,7 @@ exports.BrowserController = class BrowserController {
 
 				if (killChromeResult !== true) {
 					this.chromeExecutablePath = null;
-					this.chromeUserDataPath = null;
+					this.chromeUserDataDir = null;
 				}
 			}
 		}
@@ -87,7 +87,7 @@ exports.BrowserController = class BrowserController {
 		// start the browser with the arguments from above
 		this.browser = await puppeteer.launch({
 			executablePath: this.chromeExecutablePath,
-			userDataDir: this.chromeUserDataPath,
+			userDataDir: this.chromeUserDataDir,
 			headless,
 			args: this.puppeteerExtraArgs,
 			...others,

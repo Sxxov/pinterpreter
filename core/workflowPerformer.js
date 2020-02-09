@@ -4,7 +4,6 @@ const {
 	LogUtility,
 	randomInt,
 	sleep,
-	// eslint-disable-next-line no-unused-vars
 	addReplaceAllToStringPrototype,
 } = require('../resources/utilities');
 const {
@@ -22,6 +21,7 @@ exports.WorkflowPerformer = class WorkflowPerformer {
 		options: null,
 	}) {
 		(new LogUtility()).addToContext(this);
+		addReplaceAllToStringPrototype();
 
 		this.__tempCtx = null;
 

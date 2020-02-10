@@ -16,7 +16,7 @@ Puppeteer out of the box requires some other pieces to work efficiently, those o
 
 ## <a name="install"></a>Installation
 You'll need "npm" for this:
-```batch
+```bash
 npm i instagram-private-api
 ```
 
@@ -25,7 +25,7 @@ npm i instagram-private-api
 ```js
 const pinterpreter = require('pinterpreter');
 ```
-2) Import your [workflow](https://github.com/sxxov/pinterpreter/blob/master/docs/api.md#workflow)(s):
+2) Import your [workflow](docs/api.md#workflow)(s):
 ```js
 const { EXAMPLE_WORKFLOW } = require('./path/to/workflow/');
 ```
@@ -56,7 +56,7 @@ await workflowPerformer.perform(EXAMPLE_WORKFLOW, {
 await browserController.end();
 ```
 ## <a name="more"></a>More usages
-Refer to the [API](https://github.com/sxxov/pinterpreter/blob/master/docs/api.md) docs for more information, including how to set up your own workflows and other ways you can launch your browser.
+Refer to the [API](docs/api.md) docs for more information, including how to set up your own workflows and other ways you can launch your browser.
 
 
 

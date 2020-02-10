@@ -146,10 +146,10 @@ exports.WorkflowPerformer = class WorkflowPerformer {
 		this.__skipToAnchor = skipToAnchor;
 	}
 
-	async __loop({ until, actions }) {
-		if (!(actions instanceof Array)) {
+	async __loop({ until, workflow }) {
+		if (!(workflow instanceof Array)) {
 			throw new IncorrectArgumentError({
-				found: actions,
+				found: workflow,
 				expected: Array,
 			});
 		}
@@ -158,7 +158,7 @@ exports.WorkflowPerformer = class WorkflowPerformer {
 
 		while (!untilResult) {
 			// await sleep(1000);
-			await this.perform(actions);
+			await this.perform(workflow);
 
 			untilResult = await until(this);
 		}
